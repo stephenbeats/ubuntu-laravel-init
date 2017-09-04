@@ -66,9 +66,10 @@ make python2.7-dev python-pip re2c supervisor unattended-upgrades whois vim libn
 
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-# Install PHP Stuffs
+# Install Nginx & PHP-FPM & PHP Stuffs
 
-apt-get install -y --force-yes php7.1-cli php7.1 \
+apt-get install -y --force-yes nginx
+apt-get install -y --force-yes php7.1 php7.1-fpm php7.1-cli \
 php7.1-pgsql php7.1-sqlite3 php7.1-gd php7.1-apcu \
 php7.1-curl php7.1-mcrypt \
 php7.1-imap php7.1-mysql php7.1-memcached php7.1-readline php7.1-xdebug \
@@ -89,9 +90,7 @@ sudo sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.1/cli/php.in
 sudo sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.1/cli/php.ini
 sudo sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.1/cli/php.ini
 
-# Install Nginx & PHP-FPM
 
-apt-get install -y --force-yes nginx php7.1-fpm
 
 # Setup Some PHP-FPM Options
 
